@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
-import 'package:payment_gateway/core/utils/styles.dart';
-import 'package:payment_gateway/core/utils/widgets/custom_elevated_button.dart';
 
 class CustomCreditCardWidget extends StatefulWidget {
   final GlobalKey<FormState> formKey;
-  const CustomCreditCardWidget({super.key, required this.formKey});
+  final AutovalidateMode autoValidateModel;
+  const CustomCreditCardWidget({
+    super.key,
+    required this.formKey,
+    required this.autoValidateModel,
+  });
 
   @override
   State<CustomCreditCardWidget> createState() => _CustomCreditCardWidgetState();
@@ -29,6 +32,7 @@ class _CustomCreditCardWidgetState extends State<CustomCreditCardWidget> {
           onCreditCardWidgetChange: (value) {},
         ),
         CreditCardForm(
+          autovalidateMode: widget.autoValidateModel,
           cardNumber: cardNumber,
           expiryDate: expiryDate,
           cardHolderName: cardHolderName,
