@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payment_gateway/constants.dart';
+import 'package:payment_gateway/core/utils/assets_data.dart';
+import 'package:payment_gateway/core/utils/styles.dart';
 import 'package:payment_gateway/features/home/presentation/views/widgets/custom_circle_avatar.dart';
+import 'package:payment_gateway/features/home/presentation/views/widgets/custom_credit_card_container.dart';
 import 'package:payment_gateway/features/home/presentation/views/widgets/custom_dashed_line.dart';
+import 'package:payment_gateway/features/home/presentation/views/widgets/custom_paid_button.dart';
 import 'package:payment_gateway/features/home/presentation/views/widgets/custom_positioned_circle_avatar.dart';
+import 'package:payment_gateway/features/home/presentation/views/widgets/custom_row_payment_info.dart';
+import 'package:payment_gateway/features/home/presentation/views/widgets/custom_thamk_you_column_info.dart';
 
 class ThankYouViewBody extends StatelessWidget {
   const ThankYouViewBody({super.key});
@@ -10,7 +18,7 @@ class ThankYouViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 40, left: 12, right: 12, bottom: 32),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 48),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
@@ -18,6 +26,14 @@ class ThankYouViewBody extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: kThankYouBGColor,
+            ),
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: 40,
+                left: 22,
+                right: 22,
+              ),
+              child: CustomThankYouColumnInfo(),
             ),
           ),
           CustomPositionedCircleAvatar(
@@ -40,6 +56,30 @@ class ThankYouViewBody extends StatelessWidget {
             left: 0,
             right: 0,
             child: CustomCircleAvatar(),
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: ((MediaQuery.of(context).size.height * 0.2) / 2) - 25,
+            child: SizedBox(
+              height: 50,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 22),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SvgPicture.asset(
+                      AssetsData.barCode,
+                      height: 50,
+                    ),
+                    CustomPAIDButton(
+                      text: 'PAID',
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ],
       ),
