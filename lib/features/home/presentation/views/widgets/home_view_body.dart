@@ -96,14 +96,13 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               PaymentMethodsListView(),
               SizedBox(
                 height: 16,
               ),
               CustomPAIDButton(
-                text: 'PAID',
+                text: 'Continue',
                 onPressed: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => ThankYouView()));

@@ -21,7 +21,7 @@ class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
     return SizedBox(
       height: 60,
       child: ListView.builder(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        //padding: EdgeInsets.symmetric(horizontal: 16),
         scrollDirection: Axis.horizontal,
         itemCount: paymentMethodsModelList.length,
         itemBuilder: (BuildContext context, int index) {

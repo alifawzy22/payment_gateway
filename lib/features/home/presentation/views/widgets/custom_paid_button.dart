@@ -16,6 +16,9 @@ class CustomPAIDButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.all(
+          Color(0xFF34A853),
+        ),
         elevation: WidgetStateProperty.all(0),
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
@@ -25,14 +28,15 @@ class CustomPAIDButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        padding: WidgetStateProperty.all(
-          EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        ),
       ),
-      child: Text(
-        text,
-        style: Styles.style22.copyWith(
-          color: Color(0xFF34A853),
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.075,
+        child: Center(
+          child: Text(
+            text,
+            style: Styles.style22,
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
     );
