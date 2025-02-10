@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payment_gateway/constants.dart';
 import 'package:payment_gateway/core/utils/assets_data.dart';
-import 'package:payment_gateway/core/utils/styles.dart';
 import 'package:payment_gateway/features/home/presentation/views/widgets/custom_circle_avatar.dart';
-import 'package:payment_gateway/features/home/presentation/views/widgets/custom_credit_card_container.dart';
 import 'package:payment_gateway/features/home/presentation/views/widgets/custom_dashed_line.dart';
 import 'package:payment_gateway/features/home/presentation/views/widgets/custom_paid_button.dart';
 import 'package:payment_gateway/features/home/presentation/views/widgets/custom_positioned_circle_avatar.dart';
-import 'package:payment_gateway/features/home/presentation/views/widgets/custom_row_payment_info.dart';
 import 'package:payment_gateway/features/home/presentation/views/widgets/custom_thamk_you_column_info.dart';
 
 class ThankYouViewBody extends StatelessWidget {
