@@ -27,16 +27,15 @@ class CustomElevatedButton extends StatelessWidget {
         backgroundColor: WidgetStateProperty.all(
           kPrimaryColor,
         ),
-        minimumSize: WidgetStateProperty.all(
-          Size(
-            double.infinity,
-            70,
-          ),
-        ),
       ),
-      child: Text(
-        label,
-        style: labelTextStyle,
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        alignment: Alignment.center,
+        padding: EdgeInsets.symmetric(vertical: 12),
+        child: Text(
+          label,
+          style: labelTextStyle,
+        ),
       ),
     );
   }

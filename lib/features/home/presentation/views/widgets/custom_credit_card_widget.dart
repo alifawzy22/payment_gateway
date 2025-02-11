@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_credit_card/flutter_credit_card.dart';
+// import 'package:flutter_credit_card/flutter_credit_card.dart';
 
 class CustomCreditCardWidget extends StatefulWidget {
   final GlobalKey<FormState> formKey;
@@ -22,6 +22,7 @@ class _CustomCreditCardWidgetState extends State<CustomCreditCardWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        /*
         CreditCardWidget(
           cardNumber: cardNumber,
           expiryDate: expiryDate,
@@ -47,6 +48,8 @@ class _CustomCreditCardWidgetState extends State<CustomCreditCardWidget> {
           },
           formKey: widget.formKey,
         ),
+     
+     */
       ],
     );
   }
