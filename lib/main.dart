@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:payment_gateway/core/utils/app_strings.dart';
+import 'package:payment_gateway/core/utils/stripe_keys.dart';
 import 'package:payment_gateway/features/home/presentation/views/home_view.dart';
 
-void main() {
+void main() async {
+  Stripe.publishableKey = StripeKeys.publishableKey;
   runApp(const PaymentGateWays());
 }
 
