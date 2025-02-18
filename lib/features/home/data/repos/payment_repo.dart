@@ -6,7 +6,7 @@ import 'package:payment_gateway/features/home/data/models/payment_intent_input_m
 abstract class PaymentRepo {
   Future<Either<Failure, void>> makePayment({
     required PaymentIntentInputModel paymentIntentInputModel,
-    required CustomerInputObjectModel customerInputObjectModel,
+    //required CustomerInputObjectModel customerInputObjectModel,
     required String merchantDisplayName,
   });
 }

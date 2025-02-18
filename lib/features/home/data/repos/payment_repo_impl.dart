@@ -13,13 +13,13 @@ class PaymentRepoImpl implements PaymentRepo {
   @override
   Future<Either<Failure, void>> makePayment({
     required PaymentIntentInputModel paymentIntentInputModel,
-    required CustomerInputObjectModel customerInputObjectModel,
+    //required CustomerInputObjectModel customerInputObjectModel,
     required String merchantDisplayName,
   }) async {
     try {
       await stripeServices.makePayment(
         paymentIntentInputModel: paymentIntentInputModel,
-        customerInputObjectModel: customerInputObjectModel,
+        //customerInputObjectModel: customerInputObjectModel,
         merchantDisplayName: merchantDisplayName,
       );
       return right(null);

@@ -54,14 +54,14 @@ class StripeServices {
   Future<void> initPayment({
     required String merchantDisplayName,
     required PaymentIntentModel paymentIntentModel,
-    required CustomerObjectModel customerObjectModel,
+    //required CustomerObjectModel customerObjectModel,
     required EphemeralKeyObject ephemeralKeyObject,
   }) async {
     await Stripe.instance.initPaymentSheet(
       paymentSheetParameters: SetupPaymentSheetParameters(
         merchantDisplayName: merchantDisplayName,
         paymentIntentClientSecret: paymentIntentModel.clientSecret,
-        customerId: customerObjectModel.customerId,
+        customerId: StripeKeys.customerId,
         customerEphemeralKeySecret: ephemeralKeyObject.secret,
       ),
     );
@@ -73,21 +73,21 @@ class StripeServices {
 
   Future<void> makePayment({
     required PaymentIntentInputModel paymentIntentInputModel,
-    required CustomerInputObjectModel customerInputObjectModel,
+    //required CustomerInputObjectModel customerInputObjectModel,
     required String merchantDisplayName,
   }) async {
-    CustomerObjectModel customerObjectModel = await createCustomerObject(
-        customerInputObjectModel: customerInputObjectModel);
-
-    EphemeralKeyObject ephemeralKeyObject = await createEphemeralKeyObject(
-        customerId: customerObjectModel.customerId);
+    // CustomerObjectModel customerObjectModel = await createCustomerObject(
+    //     customerInputObjectModel: customerInputObjectModel);
 
     PaymentIntentModel model = await createPaymentIntent(
         paymentIntentInputModel: paymentIntentInputModel);
 
+    EphemeralKeyObject ephemeralKeyObject =
+        await createEphemeralKeyObject(customerId: StripeKeys.customerId);
+
     await initPayment(
       merchantDisplayName: merchantDisplayName,
-      customerObjectModel: customerObjectModel,
+      //customerObjectModel: customerObjectModel,
       paymentIntentModel: model,
       ephemeralKeyObject: ephemeralKeyObject,
     );

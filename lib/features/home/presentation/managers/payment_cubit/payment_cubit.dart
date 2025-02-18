@@ -10,13 +10,13 @@ class PaymentCubit extends Cubit<PaymentState> {
 
   Future<void> makePayment({
     required PaymentIntentInputModel paymentIntentInputModel,
-    required CustomerInputObjectModel customerInputObjectModel,
+    //required CustomerInputObjectModel customerInputObjectModel,
     required String merchantDisplayName,
   }) async {
     emit(PaymentLoadingState());
     var result = await paymentRepo.makePayment(
       paymentIntentInputModel: paymentIntentInputModel,
-      customerInputObjectModel: customerInputObjectModel,
+      //customerInputObjectModel: customerInputObjectModel,
       merchantDisplayName: merchantDisplayName,
     );
 

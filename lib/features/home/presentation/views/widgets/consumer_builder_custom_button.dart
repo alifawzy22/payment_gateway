@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payment_gateway/core/utils/stripe_keys.dart';
 import 'package:payment_gateway/core/utils/styles.dart';
 import 'package:payment_gateway/core/utils/widgets/custom_elevated_button.dart';
 import 'package:payment_gateway/features/home/data/models/customer_input_object_model.dart';
@@ -32,6 +33,7 @@ class ConsumerBuilderCustomButton extends StatelessWidget {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
         } else if (state is PaymentSuccessState) {
+          Navigator.pop(context);
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -54,14 +56,15 @@ class ConsumerBuilderCustomButton extends StatelessWidget {
                 paymentIntentInputModel: PaymentIntentInputModel(
                   amount: amount,
                   currency: currency,
+                  customerId: StripeKeys.customerId,
                 ),
-                customerInputObjectModel: CustomerInputObjectModel(
-                  description: 'This is Description',
-                  email: 'alifawzyali22@gmail.com',
-                  name: 'ali fawzy ali',
-                  paymentMethod: null,
-                  phoneNumber: '01065164103',
-                ),
+                // customerInputObjectModel: CustomerInputObjectModel(
+                //   description: 'This is Description',
+                //   email: 'alifawzyali22@gmail.com',
+                //   name: 'ali fawzy ali',
+                //   paymentMethod: null,
+                //   phoneNumber: '01065164103',
+                // ),
                 merchantDisplayName: 'Tharwat Samy',
               );
             },
