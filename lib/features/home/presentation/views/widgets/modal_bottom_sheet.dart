@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:payment_gateway/core/utils/styles.dart';
-import 'package:payment_gateway/core/utils/widgets/custom_elevated_button.dart';
+import 'package:payment_gateway/features/home/presentation/views/widgets/consumer_builder_custom_button.dart';
 import 'package:payment_gateway/features/home/presentation/views/widgets/payment_methods_list_view.dart';
 
 class ModalBottomSheet extends StatelessWidget {
+  final int amount;
+  final String currency;
   const ModalBottomSheet({
     super.key,
+    required this.amount,
+    required this.currency,
   });
 
   @override
@@ -18,10 +21,9 @@ class ModalBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           PaymentMethodsListView(),
-          CustomElevatedButton(
-            label: 'Continue',
-            labelTextStyle: Styles.style24,
-            onPressed: () {},
+          ConsumerBuilderCustomButton(
+            amount: amount,
+            currency: currency,
           ),
         ],
       ),

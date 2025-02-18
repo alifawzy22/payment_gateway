@@ -11,6 +11,7 @@ class DioServices {
     Map<String, dynamic>? queryParameters,
     dynamic data,
     String? contentType,
+    Map<String, String>? headers,
   }) {
     return dio.post(
       path,
@@ -18,9 +19,10 @@ class DioServices {
       data: data,
       options: Options(
         contentType: contentType ?? Headers.formUrlEncodedContentType,
-        headers: {
-          'Authorization': 'Bearer $token',
-        },
+        headers: headers ??
+            {
+              'Authorization': 'Bearer $token',
+            },
       ),
     );
   }

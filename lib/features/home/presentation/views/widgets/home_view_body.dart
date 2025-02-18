@@ -63,7 +63,10 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   ),
                   builder: (context) {
-                    return ModalBottomSheet();
+                    return ModalBottomSheet(
+                      amount: 108,
+                      currency: 'usd',
+                    );
                   });
             },
           ),
